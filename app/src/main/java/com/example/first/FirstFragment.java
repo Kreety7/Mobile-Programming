@@ -11,12 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.first.R;
 
 public class FirstFragment extends Fragment {
     public static final String TAG = "FragmentLifecycle";
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -45,7 +47,10 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.d(TAG, "FirstFragment: onViewCreated() called");
+
         Toast.makeText(getActivity(), "FirstFragment: onViewCreated", Toast.LENGTH_SHORT).show();
+        TextView LongPrerssTextView = view.findViewById(R.id.LongpressTexTSize);
+        registerForContextMenu(LongPrerssTextView);
     }
 
     @Override
